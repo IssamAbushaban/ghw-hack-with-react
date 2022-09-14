@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import TextComponent from './components/TextComonent.js';
+import linksdata from './data/linksdata.js';
 
 /** This is the main file for you to develop your app!
  * Everything inside the App return statement will be rendered to the DOM.
@@ -15,6 +17,12 @@ function App() {
    * Then, in the return statement, you can call it like this:
    * <MyComponent />
    * Learn more about components: https://reactjs.org/docs/components-and-props.html
+   * 
+   * To start:
+   * cd repo
+   * cd my-app
+   * yarn
+   * yarn start
   */
 
   return (
@@ -22,16 +30,21 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          I guess this is my first react...
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className = "text-component"> {
+            linksdata.links.map((segment) => (
+              <TextComponent
+                key = {segment.name}
+                name = {segment.name}
+                linkedIn = {segment.linkedIn}
+                portfolio = {segment.portfolio}
+                gitHub = {segment.gitHub}
+                youtube = {segment.youtube}
+              />
+            ))
+          }
+        </div>
       </header>
     </div>
   );
